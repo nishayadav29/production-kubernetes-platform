@@ -54,10 +54,12 @@ function App() {
 
               {
                 users.map((user) => (
-                  <p key={user.id}>
-                    👤 {user.name}
-                  </p>
-                ))
+                <div key={user._id} className="mb-2">
+                <strong>👤 {user.name}</strong>
+                <br />
+                <small>{user.email}</small>
+               </div>
+               ))
               }
 
             </div>

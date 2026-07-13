@@ -4,12 +4,14 @@
   "description": "User Microservice",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "seed": "node seed/seed.js"
   },
   "author": "Nisha Yadav",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^9.7.4"
   }
 }
