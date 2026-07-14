@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URI);const mongoose = require("mongoose");
 const User = require("../models/User");
 
 mongoose.connect("mongodb://mongodb:27017/devopsdb");

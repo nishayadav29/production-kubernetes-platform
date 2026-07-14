@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: app-config
+  namespace: production-platform
+
+data:
+  MONGO_URI: "mongodb://mongodb:27017/devopsdb"
