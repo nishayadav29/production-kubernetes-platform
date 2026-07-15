@@ -1,0 +1,54 @@
+namespace: production-platform
+
+frontend:
+  replicaCount: 1
+  image: nishayaduvanshi/frontend:2.1
+  imagePullPolicy: IfNotPresent
+
+  serviceType: NodePort
+  servicePort: 80
+
+apiGateway:
+  replicaCount: 1
+  image: nishayaduvanshi/api-gateway:2.1
+  imagePullPolicy: IfNotPresent
+
+  serviceType: ClusterIP
+  servicePort: 3000
+
+userService:
+  replicaCount: 1
+  image: nishayaduvanshi/user-service:1.0
+  imagePullPolicy: IfNotPresent
+  serviceType: ClusterIP
+  servicePort: 3001
+
+productService:
+  replicaCount: 1
+  image: nishayaduvanshi/product-service:1.0
+  imagePullPolicy: IfNotPresent
+  serviceType: ClusterIP
+  servicePort: 3002
+
+orderService:
+  replicaCount: 1
+  image: nishayaduvanshi/order-service:1.0
+  imagePullPolicy: IfNotPresent
+  serviceType: ClusterIP
+  servicePort: 3003
+
+mongodb:
+  replicaCount: 1
+  image: mongo:8
+  servicePort: 27017
+  storage: 1Gi
+
+ingress:
+  enabled: true
+  className: nginx
+
+config:
+  mongoUri: mongodb://mongodb:27017/devopsdb
+
+secret:
+  jwtSecret: devops-super-secret-key

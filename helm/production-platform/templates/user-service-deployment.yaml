@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: user-service
+  namespace: {{ .Values.namespace }}
+
+spec:
+  replicas: {{ .Values.userService.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: user-service
+
+  template:
+    metadata:
+      labels:
+        app: user-service
+
+    spec:
+      containers:
+        - name: user-service
+          image: {{ .Values.userService.image }}
+          imagePullPolicy: {{ .Values.userService.imagePullPolicy }}
+
+          ports:
+            - containerPort: {{ .Values.userService.servicePort }}
+
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: MONGO_URI
+
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: JWT_SECRET

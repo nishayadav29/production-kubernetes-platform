@@ -1,0 +1,9 @@
+apiVersion: v2
+name: production-platform
+description: Production Kubernetes Platform - Microservices application deployed using Helm
+
+type: application
+
+version: 1.0.0
+
+appVersion: "2.1"
