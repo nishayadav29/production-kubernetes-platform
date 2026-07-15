@@ -13,9 +13,9 @@ function App() {
 
   async function fetchData() {
     try {
-      const userRes = await axios.get("http://localhost:3000/users");
-      const productRes = await axios.get("http://localhost:3000/products");
-      const orderRes = await axios.get("http://localhost:3000/orders");
+      const userRes = await axios.get("/api/users");
+      const productRes = await axios.get("/api/products");
+      const orderRes = await axios.get("/api/orders");
 
       setUsers(userRes.data.users);
       setProducts(productRes.data.products);

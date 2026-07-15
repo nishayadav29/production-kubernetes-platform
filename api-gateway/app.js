@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 // User Service
-app.get("/users", async (req, res) => {
+app.get("/api/users", async (req, res) => {
   try {
     const response = await axios.get("http://user-service:3001");
     res.json(response.data);
@@ -31,7 +31,7 @@ app.get("/users", async (req, res) => {
 });
 
 // Product Service
-app.get("/products", async (req, res) => {
+app.get("/api/products", async (req, res) => {
   try {
     const response = await axios.get("http://product-service:3002");
     res.json(response.data);
@@ -41,7 +41,7 @@ app.get("/products", async (req, res) => {
 });
 
 // Order Service
-app.get("/orders", async (req, res) => {
+app.get("/api/orders", async (req, res) => {
   try {
     const response = await axios.get("http://order-service:3003");
     res.json(response.data);
