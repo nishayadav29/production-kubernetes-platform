@@ -39,13 +39,29 @@ orderService:
 
 mongodb:
   replicaCount: 1
-  image: mongo:8
-  servicePort: 27017
-  storage: 1Gi
+
+  image:
+    repository: mongo
+    tag: "8"
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+    port: 27017
+    targetPort: 27017
+
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+
+  mountPath: /data/db
 
 ingress:
   enabled: true
   className: nginx
+  host: ""
 
 config:
   mongoUri: mongodb://mongodb:27017/devopsdb
